@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Installing CPD 4.8.3 and watsonx.ai using Cloud Pak Deployer
+# Installing IBM Cloud Pak for Data 4.8.3 and watsonx.ai using Cloud Pak Deployer
 
 This tutorial uses Cloud Pak Deployer to automate the install of the CPD platform (version 4.8.3) and watsonx.ai. The documentation can be found at: <https://ibm.github.io/cloud-pak-deployer/>
 
