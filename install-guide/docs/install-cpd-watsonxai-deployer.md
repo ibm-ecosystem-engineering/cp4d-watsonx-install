@@ -55,16 +55,16 @@ This tutorial uses Cloud Pak Deployer to automate the install of the CPD platfor
     ```yaml
     ---
     global_config:
-      environment_name: techzoneCluster
+      environment_name: <cluster_name>
       cloud_platform: existing-ocp
       env_id: watsonx
       confirm_destroy: False
 
     openshift:
-      - name: techzoneCluster
+      - name: <cluster_name>
         ocp_version: 4.14
-        cluster_name: techzoneCluster
-        domain_name: cloud.techzone.ibm.com
+        cluster_name: <cluster_name>
+        domain_name: <domain_name>
         gpu:
           install: False
         mcg:
@@ -91,7 +91,7 @@ This tutorial uses Cloud Pak Deployer to automate the install of the CPD platfor
     ---
     cp4d:
       - project: cpd
-        openshift_cluster_name: techzoneCluster
+        openshift_cluster_name: <cluster_name>
         cp4d_version: 4.8.3
         cp4d_entitlement: cpd-enterprise
         cp4d_production_license: True
