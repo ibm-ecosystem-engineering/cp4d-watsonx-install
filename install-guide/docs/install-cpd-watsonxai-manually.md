@@ -1,6 +1,6 @@
-# Installing IBM Cloud Pak for Data 4.8.3 and watsonx.ai using CPD-CLI
+# Method 1: Installing IBM Cloud Pak for Data 4.8.4 and watsonx.ai using CPD-CLI
 
-This tutorial uses the cpd-cli to manually install the IBM Cloud Pak for Data platform (version 4.8.3) and watsonx.ai. The documentation can be found at: <https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=data-installing-cloud-pak>.
+This tutorial uses the cpd-cli to manually install the IBM Cloud Pak for Data platform (version 4.8.4) and watsonx.ai. The documentation can be found at: <https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=data-installing-cloud-pak>.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This tutorial uses the cpd-cli to manually install the IBM Cloud Pak for Data pl
 2. Install the latest version of the cpd-cli and navigate to the downloaded directory
 
    ```shell
-   curl -LSo cpd-cli-linux-EE-13.tgz https://github.com/IBM/cpd-cli/releases/download/v13.1.3/cpd-cli-linux-EE-13.1.3.tgz
+   curl -LSo cpd-cli-linux-EE-13.tgz https://github.com/IBM/cpd-cli/releases/download/v13.1.4/cpd-cli-linux-EE-13.1.4.tgz
 
    tar -xf cpd-cli-linux-EE-13.tgz
    ```
@@ -51,33 +51,33 @@ This tutorial uses the cpd-cli to manually install the IBM Cloud Pak for Data pl
 5. Install the cpd platform
 
     ``` shell
-    ./cpd-cli manage apply-cluster-components --release=4.8.3 --license_acceptance=true
+    ./cpd-cli manage apply-cluster-components --release=4.8.4 --license_acceptance=true
 
     ./cpd-cli manage apply-scheduler \
-    --release=4.8.3 \
+    --release=4.8.4 \
     --license_acceptance=true \
     --scheduler_ns=ibm-cpd-scheduler
 
     ./cpd-cli manage authorize-instance-topology --cpd_operator_ns=cpd-operator --cpd_instance_ns=cpd
 
     ./cpd-cli manage setup-instance-topology \
-    --release=4.8.3 \
+    --release=4.8.4 \
     --cpd_operator_ns=cpd-operator \
     --cpd_instance_ns=cpd \
     --license_acceptance=true \
     --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME>
 
     # cpd platform install
-    ./cpd-cli manage apply-olm --components=cpd_platform  --release=4.8.3 --cpd_operator_ns=cpd-operator
+    ./cpd-cli manage apply-olm --components=cpd_platform  --release=4.8.4 --cpd_operator_ns=cpd-operator
 
-    ./cpd-cli manage apply-cr --components=cpd_platform --release=4.8.3 --license_acceptance=true --cpd_operator_ns=cpd-operator --cpd_instance_ns=cpd --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME> --license_acceptance=true
+    ./cpd-cli manage apply-cr --components=cpd_platform --release=4.8.4 --license_acceptance=true --cpd_operator_ns=cpd-operator --cpd_instance_ns=cpd --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME> --license_acceptance=true
     ```
 
 6. Install the watsonx.ai component
 
     ``` shell
-    ./cpd-cli manage apply-olm --components=watsonx_ai  --release=4.8.3 --cpd_operator_ns=cpd-operator
+    ./cpd-cli manage apply-olm --components=watsonx_ai  --release=4.8.4 --cpd_operator_ns=cpd-operator
 
-    ./cpd-cli manage apply-cr --components=watsonx_ai --release=4.8.3 --license_acceptance=true --cpd_instance_ns=cpd --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME>  --license_acceptance=true
+    ./cpd-cli manage apply-cr --components=watsonx_ai --release=4.8.4 --license_acceptance=true --cpd_instance_ns=cpd --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME>  --license_acceptance=true
 
     ```

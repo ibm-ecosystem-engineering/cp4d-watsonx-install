@@ -5,6 +5,10 @@ slug: /
 
 # Intro
 
-## Getting started
+This tutorial provides the steps of installing watsonx.ai on an existing OpenShift cluster.
 
-The goal of this tutorial is to provide the steps of installing watsonx.ai on an existing OpenShift cluster. This will include an installation of IBM Cloud Pak for Data version 4.8.3.
+The tutorial includes steps on the following processes:
+
+1. Validating storage requirements for cloud pak for data and watsonx.ai
+2. Installing cloud pak for data and watsonx.ai
+   1. The tutorial provides two methods to choose from: a manual method using cpd-cli and an automated method using cloud-pak-deployer
