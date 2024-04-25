@@ -85,7 +85,7 @@ We'll use Cloud Pak Deployer to automate the install of the CPD platform (versio
    vi cp4d-484.yaml
    ```
 
-    cp4d-483.yaml:
+    cp4d-484.yaml:
 
     ```yaml
     ---
