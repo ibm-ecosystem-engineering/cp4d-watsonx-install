@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-# Method 2: Installing IBM Cloud Pak for Data 4.8.4 and watsonx.ai using Cloud Pak Deployer
+# Installing IBM Cloud Pak for Data 4.8.4, watsonx.ai, watsonx.data, and watsonx governance using Cloud Pak Deployer
 
-This tutorial uses Cloud Pak Deployer to automate the install of the CPD platform (version 4.8.3) and watsonx.ai. The documentation can be found at: <https://ibm.github.io/cloud-pak-deployer/>
+We'll use Cloud Pak Deployer to automate the install of the CPD platform (version 4.8.4) and watsonx.ai. The documentation can be found at: <https://ibm.github.io/cloud-pak-deployer/>
 
 ## Prerequisites
 
@@ -75,14 +75,14 @@ This tutorial uses Cloud Pak Deployer to automate the install of the CPD platfor
           - storage_name: ocs-storage
             storage_type: ocs
     # Optional parameters if you want to override the storage class used
-      # ocp_storage_class_file: nfs-client
-      # ocp_storage_class_block: nfs-client
+          # ocp_storage_class_file: nfs-client
+          # ocp_storage_class_block: nfs-client
     ```
 
 5. Copy the second yaml config file into the same directory:
 
    ```shell
-   vi cp4d-483.yaml
+   vi cp4d-484.yaml
    ```
 
     cp4d-483.yaml:
@@ -236,7 +236,7 @@ This tutorial uses Cloud Pak Deployer to automate the install of the CPD platfor
       - name: factsheet
         description: AI Factsheets
         size: small
-        state: removed
+        state: installed
 
       - name: hadoop
         description: Execution Engine for Apache Hadoop
@@ -256,7 +256,7 @@ This tutorial uses Cloud Pak Deployer to automate the install of the CPD platfor
 
       - name: openpages
         description: OpenPages
-        state: removed
+        state: installed
 
       # For Planning Analytics, the case version is needed due to defect in olm utils
       - name: planning-analytics
@@ -317,7 +317,7 @@ This tutorial uses Cloud Pak Deployer to automate the install of the CPD platfor
       - name: watson-openscale
         description: Watson OpenScale
         size: small
-        state: removed
+        state: installed
 
       - name: watson-speech
         description: Watson Speech (STT and TTS)
@@ -358,11 +358,11 @@ This tutorial uses Cloud Pak Deployer to automate the install of the CPD platfor
 
       - name: watsonx_data
         description: watsonx.data
-        state: removed
+        state: installed
 
       - name: watsonx_governance
         description: watsonx.governance
-        state: removed
+        state: installed
         installation_options:
           installType: all
           enableFactsheet: true

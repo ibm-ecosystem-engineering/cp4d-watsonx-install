@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Storage Validation Tool for IBM Cloud Paks
 
-This tutorial uses ansible playbooks to validate file and block storage for Cloud Pak for Data and its services: <https://github.com/IBM/k8s-storage-tests>.
+In this step, we'll use ansible playbooks to validate file and block storage for Cloud Pak for Data and its services: <https://github.com/IBM/k8s-storage-tests>.
 
 ## Running the Tests
 

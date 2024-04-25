@@ -18,18 +18,7 @@ const sidebars = {
 
   // But you can create a sidebar manually
 
-  tutorialSidebar: [
-    "intro",
-    "k8s-storage-tests",
-    {
-      type: "category",
-      label: "Installation Methods",
-      items: [
-        "install-cpd-watsonxai-manually",
-        "install-cpd-watsonxai-deployer",
-      ],
-    },
-  ],
+  tutorialSidebar: ["intro", "k8s-storage-tests", "install-cpd-watsonx"],
 };
 
 module.exports = sidebars;
