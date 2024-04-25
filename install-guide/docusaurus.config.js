@@ -54,7 +54,7 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "IBM watsonx.ai Install Guide",
+        title: "IBM watsonx Install Guide",
         items: [],
       },
       footer: {
