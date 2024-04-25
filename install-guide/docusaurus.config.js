@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "cp4d-watsonxai-install-guide",
+  title: "cp4d-watsonx-install-guide",
   tagline: "Dinosaurs are cool",
   favicon: "img/ibm_logo.svg",
 
@@ -18,12 +18,12 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "Ananddas227", // Usually your GitHub org/user name.
-  projectName: "cp4d-483-watsonxai-install", // Usually your repo name.
+  projectName: "cp4d-484-watsonx-install", // Usually your repo name.
   trailingSlash: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
 
-  baseUrl: "/cp4d-483-watsonxai-install/",
+  baseUrl: "/cp4d-484-watsonx-install/",
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".

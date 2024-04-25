@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-# Installing IBM Cloud Pak for Data 4.8.4, watsonx.ai, watsonx.data, and watsonx governance using Cloud Pak Deployer
+# Install Cloud Pak for Data and watsonx
 
-We'll use Cloud Pak Deployer to automate the install of the CPD platform (version 4.8.4) and watsonx.ai. The documentation can be found at: <https://ibm.github.io/cloud-pak-deployer/>
+We'll use Cloud Pak Deployer to automate the install of the CPD platform (version 4.8.4), watsonx.ai, watsonx.data, and watsonx.governance . The documentation can be found at: <https://ibm.github.io/cloud-pak-deployer/>
 
 ## Prerequisites
 
@@ -305,8 +305,7 @@ We'll use Cloud Pak Deployer to automate the install of the CPD platform (versio
         instances:
         - name: wd-instance
           description: "Watson Discovery instance"
-
-
+          
       - name: watson-ks
         description: Watson Knowledge Studio
         size: small
