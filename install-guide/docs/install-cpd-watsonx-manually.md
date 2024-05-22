@@ -73,11 +73,29 @@ This tutorial uses the cpd-cli to manually install the IBM Cloud Pak for Data pl
     ./cpd-cli manage apply-cr --components=cpd_platform --release=4.8.4 --license_acceptance=true --cpd_operator_ns=cpd-operator --cpd_instance_ns=cpd --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME> --license_acceptance=true
     ```
 
-6. Install the watsonx.ai component
+6. Install the watsonx.ai cartridge
 
     ``` shell
     ./cpd-cli manage apply-olm --components=watsonx_ai  --release=4.8.4 --cpd_operator_ns=cpd-operator
 
     ./cpd-cli manage apply-cr --components=watsonx_ai --release=4.8.4 --license_acceptance=true --cpd_instance_ns=cpd --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME>  --license_acceptance=true
+
+    ```
+
+7. Install the watsonx.data cartridge
+
+    ``` shell
+    ./cpd-cli manage apply-olm \
+    --release=4.8.4 \
+    --cpd_operator_ns=cpd-operator \
+    --components=watsonx_data
+
+    ./cpd-cli manage apply-cr \
+    --components=watsonx_data \
+    --release=4.8.4 \
+    --cpd_instance_ns=cpd \
+    --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> \
+    --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME>  \
+    --license_acceptance=true
 
     ```
