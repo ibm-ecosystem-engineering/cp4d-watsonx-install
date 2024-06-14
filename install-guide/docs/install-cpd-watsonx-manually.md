@@ -1,6 +1,10 @@
-# Installing IBM Cloud Pak for Data 4.8.4 and watsonx.ai using CPD-CLI
+---
+sidebar_position: 4
+---
 
-This tutorial uses the cpd-cli to manually install the IBM Cloud Pak for Data platform (version 4.8.4) and watsonx.ai. The documentation can be found at: <https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=data-installing-cloud-pak>.
+# Method 2: Use CPD-CLI to Install IBM Cloud Pak for Data and watsonx
+
+This method uses the cpd-cli to manually install the IBM Cloud Pak for Data platform (version 4.8.4) and watsonx.ai. The documentation can be found at: <https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=data-installing-cloud-pak>.
 
 ## Prerequisites
 
@@ -90,12 +94,6 @@ This tutorial uses the cpd-cli to manually install the IBM Cloud Pak for Data pl
     --cpd_operator_ns=cpd-operator \
     --components=watsonx_data
 
-    ./cpd-cli manage apply-cr \
-    --components=watsonx_data \
-    --release=4.8.4 \
-    --cpd_instance_ns=cpd \
-    --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> \
-    --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME>  \
-    --license_acceptance=true
+    ./cpd-cli manage apply-cr --components=watsonx_data --release=4.8.4 --cpd_instance_ns=cpd --block_storage_class=<YOUR_BLOCK_STORAGE_CLASS_NAME> --file_storage_class=<YOUR_FILE_STORAGE_CLASS_NAME>  --license_acceptance=true
 
     ```
