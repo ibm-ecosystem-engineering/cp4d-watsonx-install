@@ -53,47 +53,44 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
     ```yaml
     ---
     global_config:
-      environment_name: sample
+      environment_name: <cluster_name>
       cloud_platform: existing-ocp
       env_id: watsonx
       confirm_destroy: False
 
     openshift:
-    - name: <cluster_name>
-      ocp_version: 4.14
-      cluster_name: <cluster_name>
-      domain_name: <domain_name>
-      gpu:
-        install: True
-      openshift_ai:
-        install: True
-        channel: eus-2.8
-      mcg:
-        install: False
-        storage_type: storage-class
-        storage_class: managed-nfs-storage
-      openshift_storage:
-      - storage_name: ocs-storage
-        storage_type: ocs
+      - name: <cluster_name>
+        ocp_version: 4.14
+        cluster_name: <cluster_name>
+        domain_name: <domain_name>
+        gpu:
+          install: False
+        mcg:
+          install: False
+          storage_type: storage-class
+          storage_class: managed-nfs-storage
+        openshift_storage:
+          - storage_name: ocs-storage
+            storage_type: ocs
     # Optional parameters if you want to override the storage class used
-        # ocp_storage_class_file: nfs-client 
-        # ocp_storage_class_block: nfs-client
+          # ocp_storage_class_file: nfs-client
+          # ocp_storage_class_block: nfs-client
     ```
 
 5. Copy the second yaml config file into the same directory:
 
    ```shell
-   vi cp4d-500.yaml
+   vi cp4d-484.yaml
    ```
 
-    cp4d-500.yaml:
+    cp4d-484.yaml:
 
     ```yaml
     ---
     cp4d:
     - project: cpd
       openshift_cluster_name: <cluster-name>
-      cp4d_version: 5.0.0
+      cp4d_version: 4.8.4
       cp4d_entitlement: cpd-enterprise           # or: cpd-standard, watsonx-ai, watsonx-data, watsonx-gov-model-management, watsonx-gov-risk-compliance
       cp4d_production_license: True
       accept_licenses: False
@@ -145,10 +142,6 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
         description: Db2 Data Gate
         state: removed
 
-      - name: dataproduct
-        description: Data Product Hub
-        state: removed
-        
       - name: datastage-ent
         description: DataStage Enterprise
         state: removed
@@ -241,9 +234,9 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
       - name: factsheet
         description: AI Factsheets
         size: small
-        state: removed
+        state: installed
 
-      - name: hee
+      - name: hadoop
         description: Execution Engine for Apache Hadoop
         size: small
         state: removed
@@ -261,7 +254,7 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
 
       - name: openpages
         description: OpenPages
-        state: removed
+        state: installed
 
       # For Planning Analytics, the case version is needed due to defect in olm utils
       - name: planning-analytics
@@ -310,11 +303,18 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
         instances:
         - name: wd-instance
           description: "Watson Discovery instance"
+          
+      - name: watson-ks
+        description: Watson Knowledge Studio
+        size: small
+        # noobaa_account_secret: noobaa-admin
+        # noobaa_cert_secret: noobaa-s3-serving-cert
+        state: removed
 
       - name: watson-openscale
         description: Watson OpenScale
         size: small
-        state: removed
+        state: installed
 
       - name: watson-speech
         description: Watson Speech (STT and TTS)
@@ -324,31 +324,17 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
         # noobaa_cert_secret: noobaa-s3-serving-cert
         state: removed
 
-      # Please note that for watsonx.ai, the following pre-requisites exist:
-      # If you want to use foundation models, you neeed to install the Node Feature Discovery and NVIDIA GPU operators. 
-      #    You can do so by setting the openshift.gpu.install property to True
-      # OpenShift AI is a requirement for watsonx.ai. You can install this by setting the openshift.openshift_ai.install property to True
+      # Please note that for watsonx.ai foundation models, you neeed to install the
+      # Node Feature Discovery and NVIDIA GPU operators. You can do so by setting the openshift.gpu.install property to True
       - name: watsonx_ai
         description: watsonx.ai
         state: installed
-        installation_options:
-          tuning_disabled: true
         models:
-        - model_id: allam-1-13b-instruct
-          state: removed
-        - model_id: codellama-codellama-34b-instruct-hf
-          state: removed
-        - model_id: elyza-japanese-llama-2-7b-instruct
+        - model_id: google-flan-t5-xxl
           state: removed
         - model_id: google-flan-ul2
           state: removed
-        - model_id: google-flan-t5-xl
-          state: removed
-        - model_id: google-flan-t5-xxl
-          state: removed
         - model_id: eleutherai-gpt-neox-20b
-          state: removed
-        - model_id: ibm-granite-8b-japanese
           state: removed
         - model_id: ibm-granite-13b-chat-v1
           state: removed
@@ -358,25 +344,9 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
           state: removed
         - model_id: ibm-granite-13b-instruct-v2
           state: removed
-        - model_id: ibm-granite-20b-multilingual
-          state: removed
-        - model_id: core42-jais-13b-chat
-          state: removed
-        - model_id: meta-llama-llama-2-13b-chat
-          state: removed
-        - model_id: meta-llama-llama3-8b-instruct
-          state: removed
         - model_id: meta-llama-llama-2-70b-chat
           state: removed
-        - model_id: mncai-llama-2-13b-dpo-v7
-          state: removed
-        - model_id: ibm-mistralai-merlinite-7b
-          state: removed
         - model_id: ibm-mpt-7b-instruct2
-          state: removed
-        - model_id: mistralai-mixtral-8x7b-instruct-v01
-          state: removed
-        - model_id: ibm-mistralai-mixtral-8x7b-instruct-v01-q
           state: removed
         - model_id: bigscience-mt0-xxl
           state: removed
@@ -385,11 +355,11 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
 
       - name: watsonx_data
         description: watsonx.data
-        state: removed
+        state: installed
 
       - name: watsonx_governance
         description: watsonx.governance
-        state: removed
+        state: installed
         installation_options:
           installType: all
           enableFactsheet: true
@@ -398,45 +368,17 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
 
       - name: watsonx_orchestrate
         description: watsonx.orchestrate
-        app_connect:
-          app_connect_project: ibm-app-connect
-          app_connect_case_version: 11.5.0
-          app_connect_channel_version: v11.5
         state: removed
 
-      - name: wca-ansible
-        description: watsxonx Code Assistant for Red Hat Ansible Lightspeed
-        state: removed
-
-      - name: wca-z
-        description: watsxonx Code Assistant for Z
-        state: removed
-
-      # For the IBM Knowledge Catalog, you can specify 3 editions: wkx, ikc_premium, or ikc_standard
-      # Choose the correct IBM Knowledge Catalog edition below
       - name: wkc
-        description: IBM Knowledge Catalog
+        description: Watson Knowledge Catalog
         size: small
         state: removed
         installation_options:
+          install_wkc_core_only: False
           enableKnowledgeGraph: False
           enableDataQuality: False
-
-      - name: ikc_premium
-        description: IBM Knowledge Catalog - Premium edition
-        size: small
-        state: removed
-        installation_options:
-          enableKnowledgeGraph: False
-          enableDataQuality: False
-
-      - name: ikc_standard
-        description: IBM Knowledge Catalog - Standard edition
-        size: small
-        state: removed
-        installation_options:
-          enableKnowledgeGraph: False
-          enableDataQuality: False
+          enableFactSheet: False
 
       - name: wml
         description: Watson Machine Learning
@@ -460,11 +402,13 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
       - name: ws-runtimes
         description: Watson Studio Runtimes
         runtimes:
-        - ibm-cpd-ws-runtime-241-py
-        - ibm-cpd-ws-runtime-231-py
-        - ibm-cpd-ws-runtime-241-pygpu
+        - ibm-cpd-ws-runtime-py39
+        - ibm-cpd-ws-runtime-222-py
+        - ibm-cpd-ws-runtime-py39gpu
+        - ibm-cpd-ws-runtime-222-pygpu
         - ibm-cpd-ws-runtime-231-pygpu
-        - ibm-cpd-ws-runtime-241-r
+        - ibm-cpd-ws-runtime-r36
+        - ibm-cpd-ws-runtime-222-r
         - ibm-cpd-ws-runtime-231-r
         state: removed 
 
