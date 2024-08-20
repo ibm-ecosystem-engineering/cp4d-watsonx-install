@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Method 2: Use CPD-CLI to Install IBM Cloud Pak for Data and watsonx
+# Method 2: Use CPD-CLI to Install IBM Cloud Pak for Data and watsonx.ai
 
 This method uses the cpd-cli to manually install the IBM Cloud Pak for Data platform (version 4.8.4) and watsonx.ai. The documentation can be found at: <https://www.ibm.com/docs/en/cloud-paks/cp-data/4.8.x?topic=data-installing-cloud-pak>.
 

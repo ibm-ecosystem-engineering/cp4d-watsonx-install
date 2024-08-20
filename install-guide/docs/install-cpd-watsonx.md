@@ -487,7 +487,7 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
    export CPD_OC_LOGIN="<YOUR_CLUSTER_LOGIN_COMMAND> --insecure-skip-tls-verify"
    ```
 
-7. Run Cloud Pak Deployer (this will take roughly 1 to 2 hours)
+7. Navigate back to the cloud-pak-deployer directory (out two directories) and run Cloud Pak Deployer (this will take roughly 1 to 2 hours)
 
    ```shell
    ./cp-deploy.sh env apply --accept-all-licenses
