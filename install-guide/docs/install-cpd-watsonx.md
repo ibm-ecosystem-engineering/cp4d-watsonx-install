@@ -2,9 +2,9 @@
 sidebar_position: 3
 ---
 
-# Method 1: Use Cloud Pak Deployer to Install Cloud Pak for Data and watsonx
+# Method 1: Use Cloud Pak Deployer to Install Cloud Pak for Data and watsonx.ai
 
-This method uses Cloud Pak Deployer to automate the install of the CPD platform (version 5.0.0), watsonx.ai, watsonx.data, and watsonx.governance . The documentation can be found at: <https://ibm.github.io/cloud-pak-deployer/>
+This method uses Cloud Pak Deployer to automate the install of the CPD platform (version 5.0.0) and watsonx.ai. The documentation can be found at: <https://ibm.github.io/cloud-pak-deployer/>
 
 ## Prerequisites
 
