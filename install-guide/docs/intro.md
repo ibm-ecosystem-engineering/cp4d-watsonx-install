@@ -10,3 +10,5 @@ This tutorial provides the steps for installing Cloud Pak for Data (5.0.0) and w
 1. Validating the OpenShift cluster's storage to ensure it can install Cloud Pak for Data
 2. Install Method 1: Configuring cloud pak deployer to install Cloud Pak for Data and watsonx.ai
 3. Install Method 2: Using cpd-cli to install Cloud Pak for Data and watsonx.ai
+
+The hardware requirements for cp4d and watsonx.ai can be found in the official IBM documentation: <https://www.ibm.com/docs/en/cloud-paks/cp-data/5.0.x>
