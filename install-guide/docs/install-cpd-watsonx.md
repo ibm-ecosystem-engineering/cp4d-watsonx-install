@@ -498,3 +498,12 @@ This method uses Cloud Pak Deployer to automate the install of the CPD platform 
    ```shell
    ./cp-deploy.sh env logs
    ```
+
+9. Run the following to retrieve your cp4d platform password
+
+    ```shell
+    oc project cpd
+    oc get secret ibm-iam-bindinfo-platform-auth-idp-credentials -o 'jsonpath={.data.admin_password}' | base64 --decode
+    ```
+
+10. You can find the cpd url by navigating to the OpenShift web console -> Networking -> Routes -> cpd -> location
